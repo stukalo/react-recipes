@@ -1,0 +1,33 @@
+.signin {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.signin_form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin_form input {
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid grey;
+}
+
+.signin_form button {
+    margin: 10px 50px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-sizing: border-box;
+}

@@ -1,3 +1,27 @@
-.App {
-  text-align: center;
+.app {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: aliceblue;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 100%;
+    position: absolute;
+    background-color: yellow;
+}
+
+.navbar_list {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar_list a.active {
+    font-weight: bold;
 }
