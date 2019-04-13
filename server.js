@@ -1,9 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config({ path: 'variables.env' });
+const Recipe = require('./models/Recipe');
+const User = require('./models/User');
 
-mongoose.connect(process.env.MONGO_URI).then(() => console.log('DB connected'));
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => console.log('DB connected'))
+    .catch(err => console.error(err));
 
+//Initialize application
 const app = express();
 
 const PORT = process.env.PORT || 4444;
