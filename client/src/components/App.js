@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 
 import {Query} from 'react-apollo';
 import {GET_ALL_RECIPES} from '../queries';
 
 const App = () => (
-    <div>
-        <h1>Home</h1>
+    <div className='app'>
+        <h1 className='app_title'>Home</h1>
         <Query query={GET_ALL_RECIPES}>
             {({data, loading, error}) => {
                 if (loading) return <div>Loading</div>
