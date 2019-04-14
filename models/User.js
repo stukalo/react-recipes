@@ -26,7 +26,6 @@ const UserSchema = new Schema({
     },
 });
 
-UserSchema.set('autoIndex', false);
 UserSchema.pre('save', function(next) {
     if(!this.isModified('password')) {
         return next();
@@ -40,6 +39,6 @@ UserSchema.pre('save', function(next) {
           next();
        });
     });
-})
+});
 
 module.exports = mongoose.model('User', UserSchema);

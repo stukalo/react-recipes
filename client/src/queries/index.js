@@ -1,5 +1,7 @@
 import { gql } from 'apollo-boost';
 
+/* Recipes Mutations */
+
 export const GET_ALL_RECIPES = gql`
     query {
       getAllRecipes {
@@ -21,6 +23,16 @@ export const GET_RECIPE = gql`
             createdDate
             likes
             username
+        }
+    }
+`;
+
+export const SEARCH_RECIPES = gql`
+    query($searchTerm: String) {
+        searchRecipes(searchTerm: $searchTerm) {
+            _id
+            name
+            likes
         }
     }
 `;

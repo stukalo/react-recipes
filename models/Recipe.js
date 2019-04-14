@@ -31,4 +31,6 @@ const RecipeSchema = new Schema({
     }
 });
 
+RecipeSchema.index({'$**': 'text'}); //added in cloud console
+
 module.exports = mongoose.model('Recipe', RecipeSchema);
