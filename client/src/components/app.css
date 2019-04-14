@@ -20,8 +20,22 @@
     list-style: none;
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    max-height: 43px;
+}
+
+.navbar_list li {
+    overflow: hidden;
+}
+
+.navbar_list a {
+    white-space: nowrap;
 }
 
 .navbar_list a.active {
     font-weight: bold;
+}
+
+.recipes {
+    list-style: none;
 }

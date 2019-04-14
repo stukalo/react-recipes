@@ -1,5 +1,40 @@
-.add {
+.add-recipe {
+    padding-top: 50px;
+    box-sizing: border-box;
     background-color: aliceblue;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-page_title {
+    font-size: 22px;
+}
+
+.add-recipe_form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+}
+
+.add-recipe input,
+.add-recipe select,
+.add-recipe textarea{
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid grey;
+    width: 100%;
+}
+
+.add-recipe button {
+    height: 30px;
+    width: 100px;
+    margin: 10px 0;
+    cursor: pointer;
 }
