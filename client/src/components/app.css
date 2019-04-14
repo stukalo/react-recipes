@@ -39,3 +39,7 @@
 .recipes {
     list-style: none;
 }
+
+.recipes li {
+    margin: 10px 0;
+}

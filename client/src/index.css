@@ -31,6 +31,10 @@ pre
     background: transparent;
 }
 
+ul {
+    padding: 0;
+}
+
 table
 {
     border-spacing: 0;

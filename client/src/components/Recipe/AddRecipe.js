@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import './addRecipe.css';
 import Error from '../../components/Error';
+import { withRouter } from 'react-router-dom';
 
 import { Mutation } from 'react-apollo';
-import {ADD_RECIPE} from "../../queries";
+import {ADD_RECIPE, GET_ALL_RECIPES} from "../../queries";
+
+const initialState = {
+    name: '',
+    instructions: '',
+    category: 'Breakfast',
+    description: '',
+    username: ''
+};
 
 class AddRecipe extends Component {
-    state = {
-        name: '',
-        instructions: '',
-        category: 'Breakfast',
-        description: '',
-        username: ''
-    };
+    state = { ...initialState };
 
     componentDidMount() {
-        const { username } = this.props.session;
+        const { username } = this.props.session.getCurrentUser;
 
         this.setState(() => ({
             username,
@@ -35,7 +38,13 @@ class AddRecipe extends Component {
 
         addRecipe().then(({ data }) => {
             console.log(data);
+            this.clearState();
+            this.props.history.push('/');
         });
+    };
+
+    clearState = () => {
+        this.setState(() => ({ ...initialState }));
     };
 
     validateForm = () => {
@@ -49,6 +58,17 @@ class AddRecipe extends Component {
         const isInvalid = !name || !category || !description || !instructions;
 
         return isInvalid;
+    };
+
+    updateCache = (cache, { data: { addRecipe } }) => {
+        const { getAllRecipes } = cache.readQuery({ query: GET_ALL_RECIPES });
+
+        cache.writeQuery({
+            query: GET_ALL_RECIPES,
+            data: {
+                getAllRecipes: [addRecipe, ...getAllRecipes]
+            },
+        })
     };
 
     render() {
@@ -69,6 +89,7 @@ class AddRecipe extends Component {
                           instructions,
                           username,
                       }}
+                      update={this.updateCache}
             >
                 {( addRecipe, { data, loading, error }) => {
                     return (
@@ -120,4 +141,4 @@ class AddRecipe extends Component {
     }
 }
 
-export default AddRecipe;
+export default withRouter(AddRecipe);
