@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import Search from './components/Recipe/Search';
-import Profile from './components/Recipe/Profile';
+import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar';
 import Signin from './components/Auth/Signin';
 import Signup from './components/Auth/Signup';
@@ -49,7 +49,7 @@ const Root = ({ refetch, session }) => (
                 <Route path='/search' component={Search}/>
                 <Route path='/signin' render={() => <Signin refetch={refetch}/>}/>
                 <Route path='/signup' render={() => <Signup refetch={refetch}/>}/>
-                <Router path='/profile' component={Profile}/>
+                <Route path='/profile' render={ () => <Profile session={session}/>}/>
                 <Route path='/recipe/add' render={() => <AddRecipe session={session}/>}/>
                 <Route path='/recipes/:_id' component={RecipePage}/>
                 <Redirect to='/'/>
