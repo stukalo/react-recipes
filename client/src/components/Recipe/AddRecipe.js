@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './addRecipe.css';
 import Error from '../../components/Error';
 import { withRouter } from 'react-router-dom';
-
+import withAuth from '../withAuth';
 import { Mutation } from 'react-apollo';
 import {ADD_RECIPE, GET_ALL_RECIPES} from "../../queries";
 
@@ -141,4 +141,4 @@ class AddRecipe extends Component {
     }
 }
 
-export default withRouter(AddRecipe);
+export default withAuth(session => session && session.getCurrentUser)(withRouter(AddRecipe));

@@ -5,7 +5,7 @@ const UserInfo = ({session}) => {
     const formatDate = date => {
         const dateString = new Date(date).toLocaleDateString('en-US');
         const timeString = new Date(date).toLocaleTimeString('en-US');
-        return `${dateString} ${timeString}`;
+        return `${dateString} at ${timeString}`;
     }
 
     return (
